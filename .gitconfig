@@ -1,0 +1,38 @@
+[core]
+editor = code --wait
+
+[color]
+ui = "auto"
+
+[user]
+name = Luca Castelnuovo
+email = luca@castelnuovo.dev
+signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFgpfuRPq4iOUM5Np9sjg3ICoJR2AKThT9kwB1cbW3lH
+
+[gpg]
+format = ssh
+
+[gpg "ssh"]
+program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+
+[commit]
+gpgsign = true
+
+[tag]
+forceSignAnnotated = true
+
+[pull]
+rebase = true
+
+[push]
+autoSetupRemote = true
+
+[rebase]
+autoStash = true
+
+[submodule]
+recurse = true
+
+[includeIf "gitdir:~/Proculair/"]
+path = ~/Proculair/.gitconfig
+# TODO: set correct path
