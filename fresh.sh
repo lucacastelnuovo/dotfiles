@@ -38,10 +38,11 @@ brew bundle --file ./Brewfile
 # Clone repositories
 ./clone.sh
 
-# Symlink the Mackup config file to the home directory
-# ln -s $HOME/.dotfiles/.mackup.cfg $HOME/.mackup.cfg
-ln -s $HOME/.dotfiles/.gitconfig $HOME/.gitconfig
-ln -s $HOME/.dotfiles/.sshconfig $HOME/.ssh/config
+# Symlink config files
+ln -s $HOME/.dotfiles/git/.gitconfig $HOME/.gitconfig
+
+rm -rf $HOME/.ssh
+ln -s $HOME/.dotfiles/ssh $HOME/.ssh
 
 # Set macOS preferences - we will run this last because this will reload the shell
 source ./.macos
