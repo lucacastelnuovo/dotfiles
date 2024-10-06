@@ -3,7 +3,9 @@ github.com ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCj7ndNxQowgcQnjshcLrqPEiiphnt+V
 github.com ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEmKSENjQEezOmxkZMy7opKgwFB9nkt5YRrYMjNuG5N87uRgg6CLrbo5wAdT/y6v0mKV0U2w0WZ2YB/++Tpockg=
 
 prc-development-nbg1-app ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILBgFEx186av4TDPYFCeKaQFOy2MJ//ZB4kmcxJkuJsN
+prc-development-nbg1-app.tail87847.ts.net ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILBgFEx186av4TDPYFCeKaQFOy2MJ//ZB4kmcxJkuJsN
 prc-staging-nbg1-app ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK99rgD/itRrqg+Buzih9EjwAmJabWQz/ZKGhSoX5u3d
+prc-staging-nbg1-app.tail87847.ts.net ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK99rgD/itRrqg+Buzih9EjwAmJabWQz/ZKGhSoX5u3d
 prc-production-nbg1-docker ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILNigJzPsEL6o0gz7yfd52eyjWe5R8KK9vm8K3QfEaOs
 
 prc-desktop-ubuntu-huizen ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOYD9i4wbNePX/iUTUyrnxz4L3ZR/NlzZnfEpFoj/ecw
@@ -11,11 +13,13 @@ prc-desktop-windows-huizen ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK/kH/e2l57P46JX7
 prc-desktop-windows-huizen ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBDIoI4MUlYoPWNmsRLEN9VUxKelZ6pAcTZ2RfIhHAeUnupFv55AcRjOnXuRqnxgX97cWMYOjFetbZPQdpTt0T0E=
 
 fs-production-nbg1-web ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILI4LBuBIGu4WHo7BQqZyOtbTQ6v3Vee3idC3JebBFZX
+fs-production-nbg1-web.tail87847.ts.net ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILI4LBuBIGu4WHo7BQqZyOtbTQ6v3Vee3idC3JebBFZX
 fs-production-nbg1-db ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPKKKTkeGqhqq9IDJ9x5ZQlgLY8Jp2exUuVTL4dMUJzV
 fs-production-nbg1-cache ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII/944WTVM1B7eOtrR3ZlKto/49xy9AaNROwD/R3LLaW
 fs-production-nbg1-search ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMvqUwwmPXJOXnSbDkxx4IhrcUyeOWjnCabVrCq0WBgy
 
 iko-production-nbg1-web ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAYcXeIQybvbuCeK+Yf9uN/xg3Al1I+AFcUe88JFy2Jc
+iko-production-nbg1-web.tail87847.ts.net ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAYcXeIQybvbuCeK+Yf9uN/xg3Al1I+AFcUe88JFy2Jc
 iko-production-nbg1-db ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA0i+UoGDJI02pY8nzpjSt06ON4YPXk40GIKsgr2QGUe
 iko-production-nbg1-cache ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILaCyDfAcbgdUKBkwjiYE+Vw5OzhenG2TlOd7QY85YyX
 iko-production-nbg1-search ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINMmeibzJQpIc2BtX2MXuReNY+R/3SDJDMbyoOHSmui+
