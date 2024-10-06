@@ -1,5 +1,5 @@
 [core]
-editor = code --wait
+excludesfile = ~/.dotfiles/.gitignore_global
 
 [color]
 ui = "auto"
@@ -34,5 +34,4 @@ email = luca@castelnuovo.dev
 signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFgpfuRPq4iOUM5Np9sjg3ICoJR2AKThT9kwB1cbW3lH
 
 [includeIf "gitdir:~/proculair/"]
-path = ~/proculair/.gitconfig
-# TODO: set correct path
+path = ~/.dotfiles/.gitconfig_proculair

@@ -4,7 +4,7 @@ echo "Cloning repositories..."
 
 PROCULAIR=$HOME/proculair
 ZZP=$HOME/zzp
-UVA=$CODE/uva
+UVA=$HOME/uva
 
 # Create directories
 mkdir $PROCULAIR

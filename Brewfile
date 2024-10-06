@@ -1,14 +1,10 @@
 # Taps
-tap 'homebrew/cask-fonts'
-tap 'homebrew/cask-versions'
-tap 'homebrew/bundle'
+# tap ''
 
 # Binaries
 brew 'bash' # Latest Bash version
 brew 'coreutils' # Those that come with macOS are outdated
 brew 'gh'
-brew 'git'
-brew 'grep'
 brew 'mas' # Mac App Store manager
 brew 'mackup'
 # brew 'pkg-config' # https://github.com/driesvints/dotfiles/issues/20
@@ -16,7 +12,7 @@ brew 'mackup'
 # Apps
 cask '1password'
 cask 'herd'
-cask 'iterm'
+cask 'iterm2'
 cask 'rectangle'
 cask 'bettermouse'
 # cask 'shottr'
@@ -24,8 +20,7 @@ cask 'raycast'
 cask 'tailscale'
 cask 'tableplus'
 cask 'tinkerwell'
-# cask 'ray'
-# cask 'helo'
+cask 'ray'
 cask 'visual-studio-code'
 cask 'spotify'
 cask 'whatsapp'
