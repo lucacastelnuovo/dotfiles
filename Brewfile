@@ -30,6 +30,7 @@ cask 'openinterminal-lite'
 # cask 'imageoptim'
 # cask 'the-unarchiver'
 cask 'age'
+cask 'rye'
 
 # Fonts
 cask 'font-fira-code'

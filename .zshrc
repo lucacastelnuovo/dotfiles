@@ -119,3 +119,6 @@ export ADBLOCK=1
 
 # Herd injected PHP binary.
 export PATH="$HOME/Library/Application Support/Herd/bin/":$PATH
+
+# Rye injected configuration.
+source "$HOME/.rye/env"
