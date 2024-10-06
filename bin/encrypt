@@ -1,0 +1,70 @@
+#!/bin/bash
+
+set -euo pipefail
+
+readonly OP_PATH="op://Private/AGE/username"
+readonly REQUIRED_COMMANDS=(op age)
+
+validate_dependencies() {
+    for cmd in "${REQUIRED_COMMANDS[@]}"; do
+        if ! command -v "$cmd" &> /dev/null; then
+            echo "Error: Required command '$cmd' not found!"
+            echo "Please install $cmd to use this script"
+            return 1
+        fi
+    done
+}
+
+validate_input() {
+    local input_file="$1"
+
+    if [ -z "$input_file" ]; then
+        echo "Usage: $(basename "$0") <file>"
+        return 1
+    fi
+
+    if [ ! -f "$input_file" ]; then
+        echo "Error: '$input_file' not found"
+        return 1
+    fi
+}
+
+get_public_key() {
+    local public_key
+
+    public_key=$(op read "$OP_PATH") || {
+        echo "Error: Could not retrieve public key from 1Password"
+        return 1
+    }
+
+    echo "$public_key"
+}
+
+encrypt_file() {
+    local input_file="$1"
+    local output_file="${input_file}.age"
+    local public_key="$2"
+
+    if age -r "$public_key" --armor -o "$output_file" "$input_file"; then
+        echo "${input_file} encrypted successfully to ${output_file}"
+        return 0
+    else
+        echo "Error: Encryption failed"
+        rm -f "$output_file"
+        return 1
+    fi
+}
+
+main() {
+    local input_file="$1"
+    local public_key
+
+    validate_dependencies || exit 1
+    validate_input "$input_file" || exit 1
+
+    public_key=$(get_public_key) || exit 1
+
+    encrypt_file "$input_file" "$public_key" || exit 1
+}
+
+main "$@"

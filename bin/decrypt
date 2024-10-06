@@ -1,0 +1,87 @@
+#!/bin/bash
+
+set -euo pipefail
+
+readonly OP_PATH="op://Private/AGE/password"
+readonly REQUIRED_COMMANDS=(op age)
+
+validate_dependencies() {
+    for cmd in "${REQUIRED_COMMANDS[@]}"; do
+        if ! command -v "$cmd" &> /dev/null; then
+            echo "Error: Required command '$cmd' not found!"
+            echo "Please install $cmd to use this script"
+            return 1
+        fi
+    done
+}
+
+validate_input() {
+    local input_file="$1"
+
+    if [ -z "$input_file" ]; then
+        echo "Usage: $(basename "$0") <file>"
+        return 1
+    fi
+
+    if [ ! -f "$input_file" ]; then
+        echo "Error: '$input_file' not found"
+        return 1
+    fi
+}
+
+get_private_path() {
+    local private_key
+    local private_path
+
+    private_key=$(op read "$OP_PATH") || {
+        echo "Error: Could not retrieve public key from 1Password"
+        return 1
+    }
+
+    private_path=$(mktemp -t age-key.XXXXXX) || {
+        echo "Error: Could not create temporary file"
+        return 1
+    }
+
+    chmod 600 "$private_path"
+
+    echo "$private_key" > "$private_path"
+    echo "$private_path"
+}
+
+decrypt_file() {
+    local input_file="$1"
+    local output_file
+    local private_path="$2"
+
+    if [[ "$input_file" == *.age ]]; then
+        output_file="${input_file%.age}"
+    else
+        output_file="${input_file}.decrypted"
+    fi
+
+    if age --decrypt -i "$private_path" -o "$output_file" "$input_file"; then
+        echo "${input_file} decrypted successfully to ${output_file}"
+        rm -f "$private_path"
+        return 0
+    else
+        echo "Error: Decryption failed"
+        rm -f "$private_path"
+        rm -f "$output_file"
+        return 1
+    fi
+}
+
+main() {
+    local input_file="$1"
+    local private_path
+
+    validate_dependencies || exit 1
+    validate_input "$input_file" || exit 1
+
+    private_path=$(get_private_path) || exit 1
+
+    decrypt_file "$input_file" "$private_path" || exit 1
+}
+
+main "$@"

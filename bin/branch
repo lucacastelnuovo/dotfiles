@@ -1,0 +1,27 @@
+#!/bin/bash
+
+BRANCH=$1
+
+if [ -z "$BRANCH" ]; then
+    echo "Usage: branch <branch-name>"
+    exit 1
+fi
+
+git stash
+git fetch -p -P
+
+if git show-ref --verify --quiet refs/heads/$BRANCH; then
+    git checkout $BRANCH
+
+    if git show-ref --verify --quiet refs/remotes/origin/$BRANCH; then
+        git pull origin $BRANCH
+    fi
+else
+    git checkout main
+    git pull
+    git checkout -b $BRANCH
+fi
+
+if git stash list | grep -q "stash@{0}"; then
+    git stash pop
+fi
