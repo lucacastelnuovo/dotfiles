@@ -6,7 +6,6 @@ brew 'bash' # Latest Bash version
 brew 'coreutils' # Those that come with macOS are outdated
 brew 'gh'
 brew 'mas' # Mac App Store manager
-brew 'mackup'
 # brew 'pkg-config' # https://github.com/driesvints/dotfiles/issues/20
 
 # Apps
@@ -30,6 +29,7 @@ cask 'openineditor-lite'
 cask 'openinterminal-lite'
 # cask 'imageoptim'
 # cask 'the-unarchiver'
+cask 'age'
 
 # Fonts
 cask 'font-fira-code'
