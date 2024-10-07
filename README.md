@@ -31,11 +31,3 @@ After backing up your old Mac you may now follow these install instructions to s
 7. Restart your computer to finalize the process
 
 Your Mac is now ready to use!
-
-### TODO
-When installing these dotfiles for the first time you'll need to backup all of your settings with Mackup. Install Mackup and backup your settings with the commands below. Your settings will be synced to iCloud so you can use them to sync between computers and reinstall them when reinstalling your Mac. If you want to save your settings to a different directory or different storage than iCloud, [checkout the documentation](https://github.com/lra/mackup/blob/master/doc/README.md#storage). Also make sure your `.zshrc` file is symlinked from your dotfiles repo to your home directory.
-
-```zsh
-brew install mackup
-mackup backup
-```
