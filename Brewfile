@@ -1,5 +1,5 @@
 # Taps
-# tap ''
+tap 'hashicorp/tap'
 
 # Binaries
 brew 'bash' # Latest Bash version
@@ -7,6 +7,8 @@ brew 'coreutils' # Those that come with macOS are outdated
 brew 'gh'
 brew 'mas' # Mac App Store manager
 # brew 'pkg-config' # https://github.com/driesvints/dotfiles/issues/20
+brew 'rust'
+brew 'hashicorp/tap/terraform'
 
 # Apps
 cask '1password'
