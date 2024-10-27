@@ -97,6 +97,10 @@ else
     export EDITOR='code -w'
 fi
 
+# Homebrew
+export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_NO_ENV_HINTS=1
+
 # iTerm 2
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
 
@@ -105,10 +109,10 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 
 # Herd injected PHP binary.
-export PHP_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/":$PHP_INI_SCAN_DIR
+export PHP_INI_SCAN_DIR="/Users/lucacastelnuovo/Library/Application Support/Herd/config/php/":$PHP_INI_SCAN_DIR
 
 # Herd injected PHP 8.3 configuration.
-export HERD_PHP_83_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/83/"
+export HERD_PHP_83_INI_SCAN_DIR="/Users/lucacastelnuovo/Library/Application Support/Herd/config/php/83/"
 
 # Herd injected NVM configuration
 export NVM_DIR="$HOME/Library/Application Support/Herd/config/nvm"
