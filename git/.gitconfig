@@ -4,12 +4,6 @@ excludesfile = ~/.dotfiles/git/.gitignore_global
 [color]
 ui = "auto"
 
-[gpg]
-format = ssh
-
-[gpg "ssh"]
-program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
-
 [commit]
 gpgsign = true
 
@@ -28,10 +22,23 @@ autoStash = true
 [submodule]
 recurse = true
 
-[user]
-name = Luca Castelnuovo
-email = luca@castelnuovo.dev
-signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFgpfuRPq4iOUM5Np9sjg3ICoJR2AKThT9kwB1cbW3lH
+[gpg]
+format = ssh
 
-[includeIf "gitdir:~/proculair/"]
-path = ~/.dotfiles/git/.gitconfig_proculair
+[gpg "ssh"]
+program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+
+[url "github-proculair:proculair"]
+insteadOf = git@github.com:Proculair
+
+[includeIf "hasconfig:remote.*.url:git@github.com:Proculair/**"]
+path = ~/.dotfiles/git/.gitconfig_gh_proculair
+
+[url "github-proculair:proculair"]
+insteadOf = git@github.com:proculair
+
+[includeIf "hasconfig:remote.*.url:git@github.com:proculair/**"]
+path = ~/.dotfiles/git/.gitconfig_gh_proculair
+
+[includeIf "hasconfig:remote.*.url:git@github.com:*/**"]
+path = ~/.config/git/.gitconfig_gh

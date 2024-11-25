@@ -1,12 +1,34 @@
+# Added by OrbStack: 'orb' SSH host for Linux machines
+# This only works if it's at the top of ssh_config (before any Host blocks).
+# This won't be added again if you remove it.
+Include ~/.orbstack/ssh/config
+
+Host github.com
+	AddKeysToAgent yes
+	HostName ssh.github.com
+ 	Port 443
+	User git
+	IdentitiesOnly yes
+	IdentityFile ~/.ssh/personal_ed25519.pub
+
+Host github-proculair
+	AddKeysToAgent yes
+	HostName ssh.github.com
+ 	Port 443
+	User git
+	IdentitiesOnly yes
+	IdentityFile ~/.ssh/proculair_ed25519.pub
+
 Host prc-desktop-ubuntu-huizen
 	User proculair
 
 Host prc-desktop-windows-huizen
 	User admin
 
-Host github.com
-	Hostname ssh.github.com
- 	Port 443
+Host das
+	HostName fs0.das5.cs.vu.nl
+	User dpp2429
+	ForwardX11 yes
 
 Host *
 	IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
