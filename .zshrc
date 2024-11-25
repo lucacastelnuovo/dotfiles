@@ -114,6 +114,9 @@ export PHP_INI_SCAN_DIR="/Users/lucacastelnuovo/Library/Application Support/Herd
 # Herd injected PHP 8.3 configuration.
 export HERD_PHP_83_INI_SCAN_DIR="/Users/lucacastelnuovo/Library/Application Support/Herd/config/php/83/"
 
+# Herd injected PHP 8.4 configuration.
+export HERD_PHP_84_INI_SCAN_DIR="/Users/lucacastelnuovo/Library/Application Support/Herd/config/php/84/"
+
 # Herd injected NVM configuration
 export NVM_DIR="$HOME/Library/Application Support/Herd/config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"

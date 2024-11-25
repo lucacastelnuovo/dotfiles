@@ -28,6 +28,11 @@ format = ssh
 [gpg "ssh"]
 program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 
+[user]
+name = Luca Castelnuovo
+email = luca@castelnuovo.dev
+signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFgpfuRPq4iOUM5Np9sjg3ICoJR2AKThT9kwB1cbW3lH
+
 [url "github-proculair:proculair"]
 insteadOf = git@github.com:Proculair
 
@@ -39,6 +44,3 @@ insteadOf = git@github.com:proculair
 
 [includeIf "hasconfig:remote.*.url:git@github.com:proculair/**"]
 path = ~/.dotfiles/git/.gitconfig_gh_proculair
-
-[includeIf "hasconfig:remote.*.url:git@github.com:*/**"]
-path = ~/.config/git/.gitconfig_gh
