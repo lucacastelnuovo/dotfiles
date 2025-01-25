@@ -1,0 +1,15 @@
+Host github.com
+	AddKeysToAgent yes
+	HostName ssh.github.com
+ 	Port 443
+	User git
+	IdentitiesOnly yes
+	IdentityFile ~/.ssh/personal_ed25519.pub
+
+Host github-proculair
+	AddKeysToAgent yes
+	HostName ssh.github.com
+ 	Port 443
+	User git
+	IdentitiesOnly yes
+	IdentityFile ~/.ssh/proculair_ed25519.pub
