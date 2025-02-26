@@ -4,8 +4,21 @@ excludesfile = ~/.dotfiles/git/.gitignore
 [color]
 ui = "auto"
 
+[column]
+ui = auto
+
+[branch]
+sort = -committerdate
+
+[tag]
+sort = version:refname
+
+[init]
+defaultBranch = main
+
 [commit]
 gpgsign = true
+verbose = true
 
 [tag]
 forceSignAnnotated = true
@@ -15,12 +28,28 @@ rebase = true
 
 [push]
 autoSetupRemote = true
+default = simple
+followTags = true
+
+[fetch]
+prune = true
+pruneTags = true
+all = true
 
 [rebase]
 autoStash = true
+autoSquash = true
+updateRefs = true
 
 [submodule]
 recurse = true
+
+[help]
+autocorrect = prompt
+
+[rerere]
+enabled = true
+autoupdate = true
 
 [gpg]
 format = ssh
