@@ -12,8 +12,6 @@ mkdir $ZZP
 mkdir $UVA
 
 # Proculair
-git clone git@github.com:proculair/proculair-architecture.git $PROCULAIR/prc-architecture
-git clone git@github.com:proculair/proculair-pages.git $PROCULAIR/prc-pages
 git clone git@github.com:proculair/flowsave.git $PROCULAIR/flowsave
 git clone git@github.com:proculair/ikoreg.git $PROCULAIR/ikoreg
 
