@@ -5,6 +5,14 @@ set -euo pipefail
 readonly OP_PATH="op://Private/AGE/password"
 readonly REQUIRED_COMMANDS=(op age)
 
+PRIVATE_PATH=""
+
+cleanup() {
+    [ -n "$PRIVATE_PATH" ] && [ -f "$PRIVATE_PATH" ] && rm -f "$PRIVATE_PATH"
+}
+
+trap cleanup EXIT INT TERM
+
 validate_dependencies() {
     for cmd in "${REQUIRED_COMMANDS[@]}"; do
         if ! command -v "$cmd" &> /dev/null; then
@@ -34,18 +42,24 @@ get_private_path() {
     local private_path
 
     private_key=$(op read "$OP_PATH") || {
-        echo "Error: Could not retrieve public key from 1Password"
+        echo "Error: Could not retrieve private key from 1Password"
         return 1
     }
 
-    private_path=$(mktemp -t age-key.XXXXXX) || {
+    private_path=$(mktemp -t decrypt.XXXXXX) || {
         echo "Error: Could not create temporary file"
         return 1
     }
 
+    PRIVATE_PATH="$private_path"
+
     chmod 600 "$private_path"
 
-    echo "$private_key" > "$private_path"
+    echo "$private_key" > "$private_path" || {
+        echo "Error: Could not write private key to temporary file"
+        return 1
+    }
+
     echo "$private_path"
 }
 
@@ -60,20 +74,28 @@ decrypt_file() {
         output_file="${input_file}.decrypted"
     fi
 
+    if [ -f "$output_file" ]; then
+        echo "Warning: Output file '$output_file' already exists"
+        read -p "Overwrite? (y/N): " -n 1 -r
+        echo
+
+        if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+            return 1
+        fi
+    fi
+
     if age --decrypt -i "$private_path" -o "$output_file" "$input_file"; then
         echo "${input_file} decrypted successfully to ${output_file}"
-        rm -f "$private_path"
         return 0
     else
         echo "Error: Decryption failed"
-        rm -f "$private_path"
         rm -f "$output_file"
         return 1
     fi
 }
 
 main() {
-    local input_file="$1"
+    local input_file="${1:-}"
     local private_path
 
     validate_dependencies || exit 1
