@@ -5,7 +5,13 @@ set -euo pipefail
 BRANCH=$1
 
 if [ -z "$BRANCH" ]; then
-    echo "Usage: branch <branch-name>"
+    echo "Usage: $(basename "$0") <name>"
+    exit 1
+fi
+
+# Check if the current directory is a git repository
+if ! git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+    echo "Error: Not a git repository."
     exit 1
 fi
 
@@ -16,26 +22,34 @@ if ! git diff-index --quiet HEAD --; then
     STASH_CREATED=true
 fi
 
+# Get the default branch
+DEFAULT_BRANCH=$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@') || DEFAULT_BRANCH="main"
+
 # Fetch the latest changes from the remote repository
 git fetch --prune --prune-tags
 
 # Check if the branch exists locally, if so switch to it
 if git show-ref --verify --quiet "refs/heads/$BRANCH"; then
-    git checkout $BRANCH
+    echo "Switching to existing branch: $BRANCH"
+
+    # Switch to the existing branch
+    git checkout "$BRANCH"
 
     # Check if the branch exists on the remote, if so pull the latest changes
     if git show-ref --verify --quiet "refs/remotes/origin/$BRANCH"; then
-        git pull origin $BRANCH
+        git pull origin "$BRANCH"
     fi
 else
-    # Switch to main branch
-    git checkout main
+    echo "Switching to new branch: $BRANCH from $DEFAULT_BRANCH"
 
-    # Pull the latest changes from main
+    # Switch to default branch
+    git checkout "$DEFAULT_BRANCH"
+
+    # Pull the latest changes
     git pull
 
-    # Create a new branch from main
-    git checkout -b $BRANCH
+    # Create a new branch from default branch
+    git checkout -b "$BRANCH"
 fi
 
 # Check if there are any stashed changes and pop them
