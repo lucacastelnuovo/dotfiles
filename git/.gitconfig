@@ -24,7 +24,7 @@ verbose = true
 forceSignAnnotated = true
 
 [pull]
-rebase = true
+rebase = false
 
 [push]
 autoSetupRemote = true

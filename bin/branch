@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euo pipefail
+
 BRANCH=$1
 
 if [ -z "$BRANCH" ]; then
@@ -7,21 +9,38 @@ if [ -z "$BRANCH" ]; then
     exit 1
 fi
 
-git stash
-git fetch -p -P
+# Only stash changes if there are uncommitted changes
+STASH_CREATED=false
+if ! git diff-index --quiet HEAD --; then
+    git stash push -m "stashed by branch command" --include-untracked
+    STASH_CREATED=true
+fi
 
-if git show-ref --verify --quiet refs/heads/$BRANCH; then
+# Fetch the latest changes from the remote repository
+git fetch --prune --prune-tags
+
+# Check if the branch exists locally, if so switch to it
+if git show-ref --verify --quiet "refs/heads/$BRANCH"; then
     git checkout $BRANCH
 
-    if git show-ref --verify --quiet refs/remotes/origin/$BRANCH; then
+    # Check if the branch exists on the remote, if so pull the latest changes
+    if git show-ref --verify --quiet "refs/remotes/origin/$BRANCH"; then
         git pull origin $BRANCH
     fi
 else
+    # Switch to main branch
     git checkout main
+
+    # Pull the latest changes from main
     git pull
+
+    # Create a new branch from main
     git checkout -b $BRANCH
 fi
 
-if git stash list | grep -q "stash@{0}"; then
-    git stash pop
+# Check if there are any stashed changes and pop them
+if [ "$STASH_CREATED" = true ]; then
+    if ! git stash pop; then
+        echo "Warning: Failed to apply stashed changes. Use 'git stash list' to see stashes."
+    fi
 fi
