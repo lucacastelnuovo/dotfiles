@@ -25,7 +25,7 @@ cask 'shottr'
 cask 'google-chrome'
 cask 'ghostty'
 cask 'visual-studio-code'
-# phpstorm
+cask 'phpstorm'
 cask 'tableplus'
 cask 'tinkerwell'
 cask 'whatsapp'
@@ -41,14 +41,13 @@ cask 'bettermouse'
 cask 'openineditor-lite'
 cask 'openinterminal-lite'
 brew 'age'
-# brew 'rye'
+brew 'rye'
 
 # Fonts
 cask 'font-fira-code'
 
 # Mac App Store
-# mas 'Numbers', id: 409203825
-# mas 'Keynote', id: 409183694
+mas 'Numbers', id: 409203825
 mas 'PolyCapture', id: 6504193234
 mas 'Mirror Magnet', id: 1563698880
 mas 'Keystroke Pro', id: 1572206224
