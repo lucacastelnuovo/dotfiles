@@ -1,5 +1,7 @@
+# Taps
+tap 'stripe/stripe-cli'
+
 # Binaries
-brew 'awscli'
 brew 'bash' # Latest Bash version
 brew 'coreutils' # Those that come with macOS are outdated
 brew 'gh'
