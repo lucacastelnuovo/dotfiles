@@ -2,8 +2,13 @@
 
 echo "Setting up your Mac..."
 
-# Install Xcode Command Line Tools
-xcode-select --install
+# Check if Xcode Command Line Tools are installed
+if ! xcode-select -p &>/dev/null; then
+  echo "Xcode Command Line Tools not found. Installing..."
+  xcode-select --install
+else
+  echo "Xcode Command Line Tools already installed."
+fi
 
 # Check for Oh My Zsh and install if we don't have it
 if test ! $(which omz); then
@@ -14,7 +19,7 @@ fi
 if test ! $(which brew); then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >>$HOME/.zprofile
+  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
@@ -35,12 +40,16 @@ brew update
 brew tap homebrew/bundle
 brew bundle --file ./Brewfile
 
-# Clone repositories
+# Clone Github repositories
 ./clone.sh
 
-# Symlink config files
+# Symlink the Mackup config file to the home directory
+ln -s ./.mackup.cfg $HOME/.mackup.cfg
+
+# Symlink the Git config file to the home directory
 ln -s $HOME/.dotfiles/git/.gitconfig $HOME/.gitconfig
 
+# Symlink the SSH config file to the home directory
 rm -rf $HOME/.ssh
 ln -s $HOME/.dotfiles/ssh $HOME/.ssh
 

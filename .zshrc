@@ -101,6 +101,11 @@ fi
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_ENV_HINTS=1
 
+# Disable Ads
+export COMPOSER_FUND=0
+export DISABLE_OPENCOLLECTIVE=1
+export ADBLOCK=1
+
 # iTerm 2
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
 
@@ -111,17 +116,12 @@ export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agen
 # Herd injected PHP binary.
 export PHP_INI_SCAN_DIR="/Users/lucacastelnuovo/Library/Application Support/Herd/config/php/":$PHP_INI_SCAN_DIR
 
-# Herd injected PHP 8.3 configuration.
-export HERD_PHP_83_INI_SCAN_DIR="/Users/lucacastelnuovo/Library/Application Support/Herd/config/php/83/"
-
 # Herd injected PHP 8.4 configuration.
 export HERD_PHP_84_INI_SCAN_DIR="/Users/lucacastelnuovo/Library/Application Support/Herd/config/php/84/"
 
 # Herd injected NVM configuration
 export NVM_DIR="$HOME/Library/Application Support/Herd/config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-export DISABLE_OPENCOLLECTIVE=1
-export ADBLOCK=1
 
 [[ -f "/Applications/Herd.app/Contents/Resources/config/shell/zshrc.zsh" ]] && builtin source "/Applications/Herd.app/Contents/Resources/config/shell/zshrc.zsh"
 
@@ -130,8 +130,3 @@ export PATH="$HOME/Library/Application Support/Herd/bin/":$PATH
 
 # Rye injected configuration.
 source "$HOME/.rye/env"
-
-# Tauri
-export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"
-export ANDROID_HOME="$HOME/Library/Android/sdk"
-export NDK_HOME="$ANDROID_HOME/ndk/$(ls -1 $ANDROID_HOME/ndk)"
