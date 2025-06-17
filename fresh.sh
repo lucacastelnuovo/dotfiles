@@ -48,9 +48,11 @@ brew bundle --file ./Brewfile
 ./clone.sh
 
 # Symlink the Mackup config file to the home directory
+rm $HOME/.mackup.cfg
 ln -s ./.mackup.cfg $HOME/.mackup.cfg
 
 # Symlink the Git config file to the home directory
+rm  $HOME/.gitconfig
 ln -s $HOME/.dotfiles/git/.gitconfig $HOME/.gitconfig
 
 # Symlink the SSH config file to the home directory
