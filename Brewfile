@@ -16,7 +16,6 @@ brew 'stripe/stripe-cli/stripe'
 # brew 'stripe/stripe-mock/stripe-mock'
 
 # Apps
-cask 'rectangle'
 cask 'raycast'
 cask '1password'
 cask '1password-cli'
