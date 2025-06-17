@@ -19,7 +19,7 @@ brew 'stripe/stripe-cli/stripe'
 cask 'rectangle'
 cask 'raycast'
 cask '1password'
-brew '1password-cli'
+cask '1password-cli'
 cask 'herd'
 cask 'shottr'
 cask 'google-chrome'
@@ -33,15 +33,15 @@ cask 'spotify'
 cask 'ray'
 cask 'yaak'
 cask 'orbstack'
-
-# Utilities
 cask 'bettermouse'
-cask 'openineditor-lite'
-cask 'openinterminal-lite'
 # cask 'imageoptim'
 # cask 'the-unarchiver'
-cask 'age'
-cask 'rye'
+
+# Utilities
+cask 'openineditor-lite'
+cask 'openinterminal-lite'
+brew 'age'
+# brew 'rye'
 
 # Fonts
 cask 'font-fira-code'
@@ -49,7 +49,7 @@ cask 'font-fira-code'
 # Mac App Store
 # mas 'Numbers', id: 409203825
 # mas 'Keynote', id: 409183694
-# PolyCapture
-# Mirror Magnet
-# Keystroke Pro
-# Cursor Pro
+mas 'PolyCapture', id: 504193234
+mas 'Mirror Magnet', id: 1563698880
+mas 'Keystroke Pro', id: 1572206224
+mas 'Cursor Pro', id: 1447043133
