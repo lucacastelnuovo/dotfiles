@@ -49,7 +49,7 @@ cask 'font-fira-code'
 # Mac App Store
 # mas 'Numbers', id: 409203825
 # mas 'Keynote', id: 409183694
-mas 'PolyCapture', id: 504193234
+mas 'PolyCapture', id: 6504193234
 mas 'Mirror Magnet', id: 1563698880
 mas 'Keystroke Pro', id: 1572206224
 mas 'Cursor Pro', id: 1447043133
