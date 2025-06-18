@@ -103,9 +103,9 @@ export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_ENV_HINTS=1
 
 # Disable Ads
+export ADBLOCK=1
 export COMPOSER_FUND=0
 export DISABLE_OPENCOLLECTIVE=1
-export ADBLOCK=1
 
 # iTerm 2
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
