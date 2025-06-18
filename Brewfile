@@ -41,6 +41,7 @@ cask 'openineditor-lite'
 cask 'openinterminal-lite'
 brew 'age'
 brew 'rye'
+brew 'cloudflared'
 
 # Fonts
 cask 'font-fira-code'
