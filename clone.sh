@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "Cloning repositories..."
+echo "Setting up folders..."
 
 PROCULAIR=$HOME/proculair
 ZZP=$HOME/zzp
@@ -10,13 +10,3 @@ UVA=$HOME/uva
 mkdir $PROCULAIR
 mkdir $ZZP
 mkdir $UVA
-
-# Proculair
-git clone git@github.com:proculair/flowsave.git $PROCULAIR/flowsave
-git clone git@github.com:proculair/ikoreg.git $PROCULAIR/ikoreg
-
-# ZZP
-git clone git@github.com:castelnuovo/administration.git $ZZP/administration
-
-# UvA
-git clone git@github.com:lucacastelnuovo/UvA-network-security.git $UVA/security

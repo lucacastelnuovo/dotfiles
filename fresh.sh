@@ -4,10 +4,7 @@ echo "Setting up your Mac..."
 
 # Check if Xcode Command Line Tools are installed
 if ! xcode-select -p &>/dev/null; then
-  echo "Xcode Command Line Tools not found. Installing..."
   xcode-select --install
-else
-  echo "Xcode Command Line Tools already installed."
 fi
 
 # Check for Oh My Zsh and install if we don't have it
@@ -31,9 +28,6 @@ ln -sw $HOME/.dotfiles/.zshrc $HOME/.zshrc
 git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 git clone https://github.com/MichaelAquilina/zsh-you-should-use.git $ZSH_CUSTOM/plugins/you-should-use
-
-# Source ZSH
-source $HOME/.zshrc
 
 # Install Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
