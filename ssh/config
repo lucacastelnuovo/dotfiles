@@ -1,19 +1,25 @@
 Include ~/.orbstack/ssh/config
 
-Include config_git
+Host github.com
+    HostName ssh.github.com
+    Port 443
+    User git
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/id_personal.pub
+    IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+    AddKeysToAgent yes
 
-Host das
-	HostName fs0.das5.cs.vu.nl
-	User dpp2429
-	ForwardX11 yes
-
-Host prc-desktop-ubuntu-huizen
-	User proculair
-
-Host prc-desktop-windows-huizen
-	User admin
+Host github-proculair
+    HostName ssh.github.com
+    Port 443
+    User git
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/id_proculair.pub
+    IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+    AddKeysToAgent yes
 
 Host *
-	IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
-	SetEnv TERM=xterm-256color
-	User forge
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/id_personal.pub
+    IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+    SetEnv TERM=xterm-256color
